@@ -1,0 +1,46 @@
+﻿@model StudentAddDTo
+
+<hr />
+<h1 class="display-6">Yeni Öğrenci Ekle</h1>
+<hr />
+
+<form asp-area="Admin" asp-controller="Student" asp-action="Create" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="col-6">
+                        <label asp-for="FirstName" class="form-label"></label>
+                        <input class="form-control" asp-for="FirstName" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="LastName" class="form-label"></label>
+                        <input class="form-control" asp-for="LastName" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="col-6 mt-3">
+                        <div>
+                            <label asp-for="UserName" class="form-label"></label>
+                            <input class="form-control" asp-for="UserName" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6 mt-3">
+                        <div>
+                            <label asp-for="Email" class="form-label"></label>
+                            <input class="form-control" asp-for="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                    <a type="submit" class="btn btn-warning" asp-controller="Home" asp-action="Index">Vazgeç</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+﻿@model TeacherDto
+    <div class="card mb-3" style="width: 18rem;">
+        <img class="card-img-top" src="~/images/@Model.ImageUrl" height="300" width="100" alt="teacher-resim">
+        <div class="card-body">
+            <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">@Model.Experience Yıllık Deneyim</li>
+            <li class="list-group-item">@($"Ders Saati {Model.PricePerHour:C0}")</li>
+        </ul>
+        <div class="card-body">
+            <a asp-controller="Home" asp-action="Detail" class="card-link text-decoration-none">Detay</a>
+            <a href="#" class="card-link text-decoration-none">Ders Al</a>
+        </div>
+    </div>

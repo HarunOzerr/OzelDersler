@@ -1,0 +1,24 @@
+﻿@model List<TeacherDto>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">Öğretmenlerimiz</h1>
+</div>
+
+<div class="row">
+    <div class="col-2">
+        @await Component.InvokeAsync("Branches")
+    </div>
+    <div class="col-10">
+        <div class="row">
+            @foreach (var teacher in Model)
+            {
+                <div class="col-md-4">
+                    @await Html.PartialAsync("_TeacherPartial", teacher)
+                </div>
+            }
+        </div>
+    </div>
+</div>

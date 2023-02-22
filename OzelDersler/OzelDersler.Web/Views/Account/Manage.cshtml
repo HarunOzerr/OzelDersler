@@ -1,0 +1,117 @@
+﻿@model UserManageDto
+
+<form asp-controller="Account" asp-action="Manage" method="post">
+    <div class="container">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="row">
+            <h1 class="display-5">Profil Düzenle</h1>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+
+            <div class="col-6 mt-3">
+                <div>
+                    <label asp-for="UserName" class="form-label"></label>
+                    <input class="form-control" asp-for="UserName" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div>
+                    <label asp-for="Email" class="form-label"></label>
+                    <input class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div>
+                    <label asp-for="FirstName" class="form-label"></label>
+                    <input class="form-control" asp-for="FirstName" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-6 mt-auto" style="">
+                <div>
+                    <label asp-for="LastName" class="form-label"></label>
+                    <input class="form-control" asp-for="LastName" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div>
+                    <label asp-for="UserName" class="form-label"></label>
+                    <input class="form-control" asp-for="UserName" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div>
+                    <label asp-for="Email" class="form-label"></label>
+                    <input class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            @{
+                DateTime today = DateTime.Now;
+                int yearToday = today.Year;
+                int year = yearToday - 7;
+                int month = today.Month;
+                int day = today.Day;
+                DateTime minBirthOfDate = new DateTime(year, month, day);
+            }
+            <div class="col-6 mt-3">
+                <div>
+                    <label asp-for="DateOfBirth" class="form-label"></label>
+                    <input type="date"
+                           class="form-control"
+                           asp-for="DateOfBirth"
+                           value="@(Model.DateOfBirth.ToString("yyyy-MM-dd")=="0001-01-01" ? minBirthOfDate.ToString("yyyy-MM-dd") : Model.DateOfBirth.ToString("yyyy-MM-dd"))"
+                           min="1900-01-01"
+                           max="@minBirthOfDate.ToString("yyyy-MM-dd")">
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div>
+                    <label class="form-label">Cinsiyet</label>
+
+                    <select asp-for="Gender" class="form-select">
+                        <option value="Erkek">Erkek</option>
+                        <option value="Kadın">Kadın</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="col-6 mt-3">
+                <div>
+                    <label asp-for="About" class="form-label"></label>
+                    <input class="form-control" asp-for="About" />
+                    <span asp-validation-for="About" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-6 mt-3">
+                <div>
+                    <label asp-for="Experience" class="form-label"></label>
+                    <input class="form-control" asp-for="Experience" />
+                    <span asp-validation-for="Experience" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-6 mt-3">
+                <div>
+                    <label asp-for="PhoneNumber" class="form-label"></label>
+                    <input class="form-control" asp-for="PhoneNumber" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <a type="submit" class="btn btn-warning" asp-controller="Home" asp-action="Index">Vazgeç</a>
+            </div>
+        </div>
+    </div>
+</form>

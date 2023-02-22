@@ -1,0 +1,17 @@
+﻿@using OzelDersler.Entity.Concrete;
+@model List<Branch>
+<div class="list-group list-group-horizontal">
+    <a class="list-group-item list-group-item-action @(ViewBag.SelectedBranch==null ? "active" : "")"
+       asp-area="Teachers"
+       asp-controller="Home"
+       asp-action="Index"
+       asp-route-branchurl="">Tümünü Göster</a>
+    @foreach (var branch in Model)
+    {
+        <a class="list-group-item list-group-item-action  @(ViewBag.SelectedBranch==branch.Url ? "active" : "")"
+       asp-area="Teachers"
+       asp-controller="Course"
+       asp-action="CourseList"
+       asp-route-branchurl=@branch.Url>@branch.BranchName</a>
+    }
+</div>

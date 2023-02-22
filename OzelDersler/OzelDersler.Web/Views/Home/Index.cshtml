@@ -1,0 +1,105 @@
+﻿@using OzelDersler.Web.Areas.Teachers.Models;
+@model TeacherAndTeacherCourseViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">Öne Çıkan Öğretmenler</h1>
+</div>
+<div class="mb-4">
+    @await Component.InvokeAsync("Branches")
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            @foreach (var teacher in Model.Teachers)
+            {
+                <div class="col-md-4">
+                    @await Html.PartialAsync("_TeacherPartial", teacher)
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">Kurslar</h1>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            @foreach (var course in Model.teacherCourseDtos)
+            {
+                <div class="col-md-3">
+                    @await Html.PartialAsync("_TeacherCoursePartial", course)
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2 class="text-center mb-5 mt-5">Öğrenci Değerlendirmeleri</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="slides-2 swiper">
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            <img src="~/images/user-1.png" class="testimonial-img ms-5" alt="">
+                            <h3 class="ms-5 mt-4">Şeyma</h3>
+                            <h4 class="ms-5">Üniversite Öğrencisi</h4>
+                            <p class="mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="slides-2 swiper">
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            <img src="~/images/user-2.png" class="testimonial-img ms-5" alt="">
+                            <h3 class="ms-5 mt-4">Kemal</h3>
+                            <h4 class="ms-5">Girişimci</h4>
+                            <p class="mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="slides-2 swiper">
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            <img src="~/images/user-3.png" class="testimonial-img ms-5" alt="">
+                            <h3 class="ms-5 mt-4">Alexander</h3>
+                            <h4 class="ms-5">IT Manager</h4>
+                            <p class="mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="slides-2 swiper">
+                    <div class="testimonial-wrap">
+                        <div class="testimonial-item">
+                            <img src="~/images/u.png" class="testimonial-img ms-5" alt="">
+                            <h3 class="ms-5 mt-4">Serkan</h3>
+                            <h4 class="ms-5">Psikolog</h4>
+                            <p class="mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

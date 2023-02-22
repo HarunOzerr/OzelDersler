@@ -1,0 +1,54 @@
+﻿@model List<StudentCourseDto>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">İlanlarım</h1>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            @foreach (var course in Model)
+            {
+                <div class="col-md-3">
+                    <div id="courses-wrapper">
+                        <div class="row">
+                            <div class="">
+                                <div class="course">
+                                    <a asp-area="Students" asp-controller="Course" asp-action="StudentCourseDetails" asp-route-courseurl="@course.CourseUrl" class="course-img">
+                                        <img src="~/images/@course.BranchImageUrl" alt="">
+                                        <i class="course-link-icon fa fa-link"></i>
+                                    </a>
+                                    <span class="display-6 fs-3 fw-bold">@course.FirstName @course.LastName</span>
+                                    <a class="course-title text-decoration-none text-black fs-5" asp-area="Teachers" asp-controller="Course" asp-action="StudentCourseDetails" asp-route-courseurl="@course.CourseUrl">@course.CourseDescription</a>
+                                    <div class="course-details">
+                                        <span class="course-category fw-bold">@course.BranchName</span>
+                                        <span class="course-price course-free">@($"{course.PricePerHour:C0}")</span>
+                                    </div>
+                                    <div class="course-details">
+                                        <span class="course-category">
+                                            <a asp-area="Students"
+                                           asp-controller="Course"
+                                           asp-action="StudentCourseEdit"
+                                           class="btn btn-primary btn-sm" asp-route-id="@course.CourseId">Düzenle</a>
+
+                                        </span>
+                                        <span class="course-price course-free">
+                                            <a asp-area="Students"
+                                           asp-controller="Course"
+                                           asp-action="StudentCourseDelete"
+                                           class="btn btn-danger btn-sm" asp-route-id="@course.CourseId">Sil</a>
+
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

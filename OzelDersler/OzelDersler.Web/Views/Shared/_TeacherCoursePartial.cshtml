@@ -1,0 +1,29 @@
+﻿@using OzelDersler.Web.Areas.Teachers.Models;
+@model TeacherCourseDto
+
+<div id="courses-wrapper">
+    <div class="row">
+        <div class="">
+            <div class="course">
+                <a asp-area="" asp-controller="Course" asp-action="TeacherCourseDetails" asp-route-courseurl="@Model.CourseUrl" class="course-img">
+                    @if (Model.BranchImageUrl != null)
+                    {
+                        <img src="~/images/@Model.BranchImageUrl" alt="">
+                    }
+                    else
+                    {
+                        <img src="~/images/logo.png" alt="">
+
+                    }
+                    <i class="course-link-icon fa fa-link"></i>
+                </a>
+                <span class="display-6 fs-3 fw-bold">@Model.CourseName</span>
+                <a class="course-title text-decoration-none text-black fs-5" asp-area="" asp-controller="Course" asp-action="TeacherCourseDetails" asp-route-courseurl="@Model.CourseUrl">@Model.CourseDescription</a>
+                <div class="course-details">
+                    <span class="course-category fw-bold">@Model.BranchName</span>
+                    <span class="course-price course-free">@($"{Model.PricePerHour:C0}")</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@using OzelDersler.Web.Areas.Teachers.Models;
+@model List<TeacherCourseDto>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">Öğretmenler</h1>
+</div>
+<div class="mb-4">
+    @await Component.InvokeAsync("Branches")
+</div>
+<div class="row">
+
+    <div class="col-12">
+        <div class="row">
+            @foreach (var course in Model)
+            {
+                <div class="col-md-3">
+                    @await Html.PartialAsync("_CoursePartial", course)
+                </div>
+            }
+        </div>
+    </div>
+</div>

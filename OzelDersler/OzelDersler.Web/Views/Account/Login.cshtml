@@ -1,0 +1,88 @@
+﻿@model LoginDto
+
+<form asp-controller="Account" asp-action="Login" method="post">
+    <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl" />
+    <div class="imgcontainer">
+        <img src="~/images/logo.png" alt="Logo" class="avatar">
+    </div>
+
+    <div class="container">
+        <div asp-validation-summary="All" class="text-danger fw-bold"></div>
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName">
+
+        <label asp-for="Password"></label>
+        <input asp-for="Password">
+
+        <button type="submit">Giriş Yap</button>
+        <a asp-controller="Home" asp-action="Index" type="button" class="cancelbtn">Vazgeç</a>
+    </div>
+</form>
+
+
+
+
+<style>
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #0A2647;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+    .cancelbtn {
+        background-color: indianred;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-decoration:none;
+        text-align:center;
+    }
+    .cancelbtn:hover
+    {
+        opacity: 0.8;
+        color:white;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    img.avatar {
+        width: 25%;
+        border-radius: 50%;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+</style>

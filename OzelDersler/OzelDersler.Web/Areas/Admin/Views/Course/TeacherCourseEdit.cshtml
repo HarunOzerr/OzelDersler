@@ -1,0 +1,56 @@
+﻿@model TeacherCourseUpdateDto
+<hr />
+<h1 class="display-6">Ders Ekle</h1>
+<hr />
+<form asp-area="Admin"
+      asp-controller="Course"
+      asp-action="TeacherCourseEdit">
+      <input type="hidden" name="TeacherId" value="@Model.TeacherId" />
+    <div class="row">
+        <div class="col-9">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label asp-for="CourseName" class="form-label"></label>
+                    <input class="form-control" asp-for="CourseName">
+                    <span asp-validation-for="CourseName" class="text-danger"></span>
+                </div>
+                <div class="col-6 mb-3">
+                    <label asp-for="CourseDescription" class="form-label"></label>
+                    <input class="form-control" asp-for="CourseDescription">
+                    <span asp-validation-for="CourseDescription" class="text-danger"></span>
+                </div>
+                <div class="col-6 mb-3">
+                    <label asp-for="PricePerHour" class="form-label"></label>
+                    <input type="number" class="form-control" asp-for="PricePerHour">
+                    <span asp-validation-for="PricePerHour" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label class="form-label display-6" asp-for="Branches"></label>
+                <hr />
+                @foreach (var branch in Model.Branches)
+                {
+                        <div>
+                            <input type="radio"
+                           class="form-check-input"
+                           name="selectedBranchId"
+                           value="@branch.Id"
+                            @if (Model.SelectedBranchId != 0)
+                        {
+                           @(Model.SelectedBranchId == branch.Id ? "checked" : "")
+                           }/>
+                            <label>@branch.BranchName</label>
+                        </div>
+                }
+                <span asp-validation-for="SelectedBranchId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <a type="submit" class="btn btn-warning" asp-controller="Home" asp-action="Index">Vazgeç</a>
+        </div>
+    </div>
+</form>

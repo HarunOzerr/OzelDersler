@@ -1,0 +1,22 @@
+﻿@using OzelDersler.Entity.Concrete;
+@using OzelDersler.Web.Areas.Teachers.Models;
+@model TeacherDto
+<div class="card mb-3" style="width: 18rem;">
+    @if (Model.Gender == "Erkek")
+    {
+    <img class="card-img-top" src="~/images/10.png" height="300" width="100" alt="teacher-resim">
+    }
+    else if(Model.Gender == "Kadın")
+    {
+    <img class="card-img-top" src="~/images/11.png" height="300" width="100" alt="teacher-resim">
+    }
+    <div class="card-body">
+        <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">@Model.Experience Yıllık Deneyim</li>
+    </ul>
+    <div class="card-body">
+        <a asp-controller="Home" asp-action="Detail" class="card-link text-decoration-none" asp-route-id="@Model.Id">Detay</a>
+    </div>
+</div>
