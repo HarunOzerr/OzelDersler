@@ -5,4 +5,4 @@
 Admin girişi için
 -----------------
 Kullanıcı Adı: admin
-Şifre : Qwe123.
+Şifre: Qwe123.
